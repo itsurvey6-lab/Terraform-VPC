@@ -1,4 +1,4 @@
-name: Terraform CI CD pipeline for deploying AWS resorces
+name: Terraform CI CD pipeline for deploying AWS resorcess
 run-name: ${{ github.actor }} has triggered the pipeline
 
 on:
