@@ -1,22 +1,22 @@
 data "aws_ami" "amazon-2" {
- most_recent = true
+  most_recent = true
 
 
- filter {
-   name   = "owner-alias"
-   values = ["amazon"]
- }
+  filter {
+    name   = "owner-alias"
+    values = ["amazon"]
+  }
 
- filter {
+  filter {
     name   = "virtualization-type"
     values = ["hvm"]
   }
 
 
- filter {
-   name   = "name"
-   values = ["amzn2-ami-hvm*"]
- }
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm*"]
+  }
 }
 
 data "aws_availability_zones" "available" {
