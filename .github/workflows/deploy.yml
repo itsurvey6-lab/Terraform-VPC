@@ -1,0 +1,35 @@
+name: Terraform CI CD pipeline for deploying aws resorces
+run-name: ${{ github.actor }} has triggered the pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-infra:
+    name: terraform-ci-cd
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
+      - name: Terraform init
+        id: init
+        run: terraform init --backend=false
+        working-directory: ./Terraform-VPC
+        
+
+      - name: Terraform validate
+        id: validate
+        run: terraform validate
+        working-directory: ./Terraform-VPC
+        
+
