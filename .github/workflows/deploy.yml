@@ -19,7 +19,9 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Format Check
+        id: format
         run: terraform fmt -check -recursive
+        working-directory: ./Terraform-VPC
 
       - name: Terraform init
         id: init
